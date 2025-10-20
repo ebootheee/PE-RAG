@@ -90,6 +90,16 @@ test_*.py
 temp/
 tmp/
 
+# Development and debug files
+debug_*.py
+clear_*.py
+migrate_*.py
+verify_*.py
+fix_*.py
+*-bak.py
+pinecone_wrapper.py
+tvp-*.py
+
 # Documentation builds
 docs/_build/
 
