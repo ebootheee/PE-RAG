@@ -10,7 +10,7 @@ from openai import OpenAI
 import json
 from typing import List, Dict, Any
 
-def query_pinecone_for_n8n(query_text: str, top_k: int = 5, namespace: str = "tvp-2") -> List[Dict[str, Any]]:
+def query_pinecone_for_n8n(query_text: str, top_k: int = 5, namespace: str = "legal-docs") -> List[Dict[str, Any]]:
     """
     Query Pinecone and return results in the format expected by n8n/LangChain
     """
@@ -19,7 +19,7 @@ def query_pinecone_for_n8n(query_text: str, top_k: int = 5, namespace: str = "tv
     openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
     
     # Connect to index
-    index = pc.Index("tvp-legal")
+    index = pc.Index("legal-documents")
     
     # Get embedding for the query
     response = openai_client.embeddings.create(

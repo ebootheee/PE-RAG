@@ -16,7 +16,7 @@ An interactive Python tool for uploading legal documents to Pinecone vector data
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/eboothe69/PE-RAG.git
+   git clone https://github.com/[username]/PE-RAG.git
    cd PE-RAG
    ```
 

@@ -128,7 +128,7 @@ for semantic search and AI-powered document retrieval.
    Testing OpenAI connection... ✅ Success!
    Testing Pinecone connection... ✅ Success!
    Found 1 index(es):
-     - tvp-legal
+     - legal-documents
 
 ✅ All connections successful!
 
@@ -138,9 +138,9 @@ for semantic search and AI-powered document retrieval.
 
 📋 CONFIGURATION SUMMARY
 ========================================
-📁 Documents Folder:    C:\Users\EricBoothe\TVP_Organized
-🗃️ Pinecone Index:      tvp-legal
-📂 Namespace:           tvp-2
+📁 Documents Folder:    C:\Documents\Legal_Documents
+🗃️ Pinecone Index:      legal-documents
+📂 Namespace:           legal-docs
 🤖 Embedding Model:     text-embedding-3-large
 📏 Dimensions:          3072
 📦 Batch Size:          50

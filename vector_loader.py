@@ -61,9 +61,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configuration
-DEFAULT_DOCS_PATH = r"C:\Users\EricBoothe\TVP_Organized"
-PINECONE_INDEX_NAME = "tvp-legal"
-PINECONE_NAMESPACE = "tvp-2"
+DEFAULT_DOCS_PATH = r"C:\Documents\Legal_Documents"
+PINECONE_INDEX_NAME = "legal-documents"
+PINECONE_NAMESPACE = "legal-docs"
 OPENAI_EMBEDDING_MODEL_LARGE = "text-embedding-3-large"
 OPENAI_EMBEDDING_MODEL_SMALL = "text-embedding-3-small"
 EMBEDDING_DIMENSIONS_LARGE = 3072
@@ -546,9 +546,8 @@ class ParallelLegalDocumentVectorLoader:
             metadata['document_type_prefix'] = doc_prefix
             metadata['document_type'] = self._map_doc_prefix_to_type(doc_prefix)
         
-        # Extract fund information
-        if 'greenpoint' in filename.lower() or 'tvp' in filename.lower():
-            metadata['fund_name'] = 'GreenPoint TVP'
+        # Extract organization information (generic placeholder)
+        # Add custom logic here to identify document organization/source if needed
         
         # Check execution status
         metadata['is_executed'] = 'executed' in filename.lower()
@@ -671,7 +670,6 @@ class ParallelLegalDocumentVectorLoader:
                             'total_chunks': doc.metadata['total_chunks'],
                             'is_executed': doc.metadata.get('is_executed', False),
                             'is_draft': doc.metadata.get('is_draft', False),
-                            'fund_name': doc.metadata.get('fund_name', ''),
                             'file_size': doc.metadata['file_size'],
                             'processing_date': doc.metadata['processing_date']
                         }
@@ -941,7 +939,7 @@ def legacy_main():
     parser = argparse.ArgumentParser(description='Load legal documents into Pinecone vector store (parallel version)')
     parser.add_argument('--docs-directory', '-d',
                        default=DEFAULT_DOCS_PATH,
-                       help='Directory containing organized legal documents')
+                       help='Directory containing legal documents to process')
     parser.add_argument('--load-documents', action='store_true',
                        help='Process and load all documents')
     parser.add_argument('--test-connection', action='store_true',
